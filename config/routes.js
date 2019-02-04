@@ -1,7 +1,16 @@
 const router = require('express').Router()
+const tvShowsControllet = require('../controllers/tvshows.js')
 
-router.get('/', (req, res) => res.json({ message: 'HOMEPAGE' }))
-router.post('/tvshows', (req, res) => res.json({ message: 'Create page' }))
-router.get('/tvshows/:id', (req, res) => res.json({ message: 'Show page' }))
-router.put('/tvshows/:id', (req, res) => res.json({ message: 'edit page' }))
-router.delete('/tvshows/:id', (req, res) => res.json({ message: 'delete page' }))
+
+router.route('/tvshows')
+  .get(tvShowsControllet.index)
+  .post(tvShowsControllet.create)
+
+router.route('/tvshows/:id')
+  .get(tvShowsControllet.show)
+
+
+
+module.exports = router
+// router.put('/tvshows/:id', (req, res) => res.json({ message: 'edit page' }))
+// router.delete('/tvshows/:id', (req, res) => res.json({ message: 'delete page' }))
