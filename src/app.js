@@ -19,7 +19,7 @@ class App extends React.Component {
       <div>
         <h1>Hello World  {console.log(this.state)}</h1>
         {this.state.data.map(data =>
-          <p key={data._id}>{data.name}</p>
+          <p key={data._id}>{data.name} {data.image}</p>
         )}
       </div>
     )
