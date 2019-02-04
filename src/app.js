@@ -18,14 +18,11 @@ class App extends React.Component {
     return(
 
       <BrowserRouter>
-
         <main>
           <Nav />
-
           <Switch>
             <Route path="/tvshows/new" component={Form} />
             <Route path="/tvshows" component={Indexpage}/>
-
             <Route path="/" component={Home}/>
           </Switch>
         </main>

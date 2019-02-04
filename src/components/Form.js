@@ -1,38 +1,95 @@
 import React from 'react'
+import axios from 'axios'
 
-const Form = () =>{
-  return(
-    <form >
-      <div className="field">
-        <label className="label">Number To</label>
-        <div className="control">
-          <input  name="to" className="input is-medium" type="number" placeholder="0" min="0" />
-        </div>
-      </div>
+class Form extends React.Component{
+  constructor(){
+    super()
+    this.state = {}
+    this.handleChange =this.handleChange.bind(this)
+    this.handleSubmit =this.handleSubmit.bind(this)
 
-      <div className="field">
-        <label className="label">Translation</label>
-        <div className="control">
-          <div className="select">
+  }
 
+  handleChange({target: { name, value } }){
+    const data = {...this.state.data, [name]: value}
+    this.setState({data})
+  }
+
+  handleSubmit(e){
+    e.preventDefault()
+    axios.post('/api/tvshows',{
+      ...this.state.data
+    })
+      .then(res => console.log(res.data.message))
+      .catch(() => console.log('Translation was un-successful. Message was not sent'))
+  }
+
+  render(){
+    return(
+      <form onSubmit={this.handleSubmit}>
+        <div className="field">
+          <label className="label">Tv Show Name</label>
+          <div className="control">
+            <input onChange={this.handleChange}   name="name" className="input is-medium" type="text" />
           </div>
         </div>
-      </div>
 
-      <div className="field">
-        <label className="label">Message</label>
-        <div className="control">
-          <textarea name="message"
-            className="textarea has-fixed-size" placeholder="Your Message....."/>
+        <div className="field">
+          <label className="label">Image</label>
+          <div className="control">
+            <input onChange={this.handleChange}  name="image" className="input is-medium" type="text" />
+          </div>
         </div>
-      </div>
 
-      <div className="control">
-        <button className="button is-primary">Submit</button>
-      </div>
-    </form>
+        <div className="field">
+          <label className="label">Genre</label>
+          <div className="control">
+            <input  onChange={this.handleChange}  name="genre" className="input is-medium" type="text" />
+          </div>
+        </div>
 
-  )
+        <div className="field">
+          <label className="label">Year</label>
+          <div className="control">
+            <input onChange={this.handleChange} name="year" className="input is-medium" type="text" />
+          </div>
+        </div>
+
+        <div className="field">
+          <label className="label">Stars</label>
+          <div className="control">
+            <input onChange={this.handleChange} name="stars" className="input is-medium" type="text" />
+          </div>
+        </div>
+
+        <div className="field">
+          <label className="label">ratings</label>
+          <div className="control">
+            <input onChange={this.handleChange} name="ratings" className="input is-medium" type="text" />
+          </div>
+        </div>
+
+        <div className="field">
+          <label className="label">Runtime</label>
+          <div className="control">
+            <input onChange={this.handleChange} name="runtime" className="input is-medium" type="text" />
+          </div>
+        </div>
+
+        <div className="field">
+          <label className="label">Plot</label>
+          <div className="control">
+            <input onChange={this.handleChange} name="plot" className="input is-medium" type="text" />
+          </div>
+        </div>
+
+        <div className="control">
+          <button className="button is-primary">Submit</button>
+        </div>
+      </form>
+    )
+  }
+
 }
 
 export default Form
