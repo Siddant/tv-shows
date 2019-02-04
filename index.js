@@ -8,7 +8,7 @@ const routes = require('./config/routes')
 
 const app = express()
 
-mongoose.connect('mongodb://localhost/tv-shows-db')
+mongoose.connect(process.env.MONGODB_URI)
 
 app.use(express.static(`${__dirname}/dist`))
 
