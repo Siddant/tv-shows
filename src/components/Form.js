@@ -20,73 +20,79 @@ class Form extends React.Component{
     axios.post('/api/tvshows',{
       ...this.state.data
     })
-      .then(res => console.log(res.data.message))
+      .then(() => this.props.history.push('/tvshows'))
       .catch(() => console.log('Translation was un-successful. Message was not sent'))
   }
 
   render(){
     return(
-      <form onSubmit={this.handleSubmit}>
-        <div className="field">
-          <label className="label">Tv Show Name</label>
-          <div className="control">
-            <input onChange={this.handleChange}   name="name" className="input is-medium" type="text" />
-          </div>
-        </div>
+      <section className="section">
+        <div className="container">
+          <h1 className="title is-1">Add new Tv Shows</h1>
 
-        <div className="field">
-          <label className="label">Image</label>
-          <div className="control">
-            <input onChange={this.handleChange}  name="image" className="input is-medium" type="text" />
-          </div>
-        </div>
+          <form onSubmit={this.handleSubmit}>
+            <div className="field">
+              <label className="label">Tv Show Name</label>
+              <div className="control">
+                <input onChange={this.handleChange}   name="name" className="input is-medium" type="text" />
+              </div>
+            </div>
 
-        <div className="field">
-          <label className="label">Genre</label>
-          <div className="control">
-            <input  onChange={this.handleChange}  name="genre" className="input is-medium" type="text" />
-          </div>
-        </div>
+            <div className="field">
+              <label className="label">Image</label>
+              <div className="control">
+                <input onChange={this.handleChange}  name="image" className="input is-medium" type="text" />
+              </div>
+            </div>
 
-        <div className="field">
-          <label className="label">Year</label>
-          <div className="control">
-            <input onChange={this.handleChange} name="year" className="input is-medium" type="text" />
-          </div>
-        </div>
+            <div className="field">
+              <label className="label">Genre</label>
+              <div className="control">
+                <input  onChange={this.handleChange}  name="genre" className="input is-medium" type="text" />
+              </div>
+            </div>
 
-        <div className="field">
-          <label className="label">Stars</label>
-          <div className="control">
-            <input onChange={this.handleChange} name="stars" className="input is-medium" type="text" />
-          </div>
-        </div>
+            <div className="field">
+              <label className="label">Year</label>
+              <div className="control">
+                <input onChange={this.handleChange} name="year" className="input is-medium" type="text" />
+              </div>
+            </div>
 
-        <div className="field">
-          <label className="label">ratings</label>
-          <div className="control">
-            <input onChange={this.handleChange} name="ratings" className="input is-medium" type="text" />
-          </div>
-        </div>
+            <div className="field">
+              <label className="label">Stars</label>
+              <div className="control">
+                <input onChange={this.handleChange} name="stars" className="input is-medium" type="text" />
+              </div>
+            </div>
 
-        <div className="field">
-          <label className="label">Runtime</label>
-          <div className="control">
-            <input onChange={this.handleChange} name="runtime" className="input is-medium" type="text" />
-          </div>
-        </div>
+            <div className="field">
+              <label className="label">ratings</label>
+              <div className="control">
+                <input onChange={this.handleChange} name="ratings" className="input is-medium" type="text" />
+              </div>
+            </div>
 
-        <div className="field">
-          <label className="label">Plot</label>
-          <div className="control">
-            <input onChange={this.handleChange} name="plot" className="input is-medium" type="text" />
-          </div>
-        </div>
+            <div className="field">
+              <label className="label">Runtime</label>
+              <div className="control">
+                <input onChange={this.handleChange} name="runtime" className="input is-medium" type="text" />
+              </div>
+            </div>
 
-        <div className="control">
-          <button className="button is-primary">Submit</button>
+            <div className="field">
+              <label className="label">Plot</label>
+              <div className="control">
+                <input onChange={this.handleChange} name="plot" className="input is-medium" type="text" />
+              </div>
+            </div>
+
+            <div className="control">
+              <button className="button is-primary">Submit</button>
+            </div>
+          </form>
         </div>
-      </form>
+      </section>
     )
   }
 

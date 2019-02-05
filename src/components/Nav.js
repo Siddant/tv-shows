@@ -7,7 +7,6 @@ class Nav extends React.Component {
     this.state = {
       navbarOpen: false
     }
-
     this.toggleNavbar = this.toggleNavbar.bind(this)
   }
 

@@ -17,22 +17,31 @@ class Indexpage extends React.Component {
   render(){
     if(!this.state.data) return <p>Loading...</p>
     return(
-      <div>
-        <section className="section">
-          <h1>Tv Shows Database</h1>
+      <section className="section">
+        <h1 className="title is-1">Tv Shows</h1>
+        <div className="container">
+          <div className="columns is-multiline">
+            {this.state.data.map(data =>
+              <div className="column is-one-fifth" key={data._id}>
+                <div className="card">
+                  <div className="card-header">
+                    <h2 className="card-header-title">{data.name}</h2>
+                  </div>
+                  <div className="card-image">
+                    <figure className="image" style={{ backgroundImage: `url(${data.image})` }} />
+                  </div>
+                  <div className="card-content">
+                    <div className="content">
+                      <p><strong>Year:</strong> {data.year}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
-          <div className="container">
+            )}
           </div>
-        </section>
-        <div>
-          {this.state.data.map(data =>
-            <div key={data._id}>
-              <p>{data.name}</p>
-              <figure className="image" style={{ backgroundImage: `url(${data.image})` }} />
-            </div>
-          )}
         </div>
-      </div>
+      </section>
 
     )
   }

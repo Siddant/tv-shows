@@ -11,6 +11,8 @@ import Nav from './components/Nav'
 import Indexpage from './components/Indexpage'
 
 import 'bulma'
+import './style.scss'
+
 
 class App extends React.Component {
 
