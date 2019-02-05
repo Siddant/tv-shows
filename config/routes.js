@@ -1,13 +1,14 @@
 const router = require('express').Router()
-const tvShowsControllet = require('../controllers/tvshows.js')
+const tvShowsController = require('../controllers/tvshows.js')
 
 
 router.route('/tvshows')
-  .get(tvShowsControllet.index)
-  .post(tvShowsControllet.create)
+  .get(tvShowsController.index)
+  .post(tvShowsController.create)
 
 router.route('/tvshows/:id')
-  .get(tvShowsControllet.show)
+  .get(tvShowsController.show)
+  .delete(tvShowsController.delete)
 
 
 

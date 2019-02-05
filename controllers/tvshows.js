@@ -19,9 +19,19 @@ function showTvshows(req, res){
     .findById(req.params.id)
     .then(tvshows  => res.status(200).json(tvshows))
 }
+function deleteTvshows(req, res){
+  Tvshows
+    .findById(req.params.id)
+    .then(tvshows => tvshows.set(req.body))
+    .then(tvshows => tvshows.save())
+    .then(tvshows => res.status(200).json(tvshows))
+    .catch(err => res.status(422).json(err.errors))
+}
+
 
 module.exports = {
   index: getIndex,
   create: createTvshows,
-  show: showTvshows
+  show: showTvshows,
+  delete: deleteTvshows
 }
